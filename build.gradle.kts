@@ -10,4 +10,6 @@ allprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
-tasks.getByPath(":app:preBuild").dependsOn(tasks.addKtlintCheckGitPreCommitHook)
+tasks.addKtlintCheckGitPreCommitHook {
+    mustRunAfter(tasks.getByPath(":app:build"))
+}
