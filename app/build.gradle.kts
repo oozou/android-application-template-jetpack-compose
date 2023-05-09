@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "com.kbank.dafund.mobile"
-    compileSdk = 33
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.kbank.dafund.mobile"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,16 +39,16 @@ android {
 }
 
 dependencies {
+    implementation(libs.core.ktx)
+    implementation(libs.ui.appcompat)
+    implementation(libs.material3)
+    implementation(libs.ui.constraintlayout)
+    implementation(libs.ui.livedata.ktx)
+    implementation(libs.ui.viewmodel.ktx)
+    implementation(libs.ui.fragment.ktx)
+    implementation(libs.ui.navigation.ui.ktx)
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
