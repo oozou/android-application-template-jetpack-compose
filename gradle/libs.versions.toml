@@ -1,0 +1,52 @@
+[versions]
+agp = "8.1.0-beta02"
+org-jetbrains-kotlin-android = "1.8.0"
+org-jlleitschuh-gradle-ktlint = "11.3.2"
+core-ktx = "1.10.0"
+junit = "4.13.2"
+ext-junit = "1.1.5"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.6.1"
+activity-compose = "1.7.1"
+app-compat = "1.6.1"
+constraintlayout = "2.6.1"
+material3 = "1.0.1"
+livedata-ktx = "2.6.1"
+viewmodel-ktx = "2.6.1"
+fragment-ktx = "2.5.3"
+navigation-ui-ktx = "2.5.3"
+compose-bom = "2023.05.00"
+
+[libraries]
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "ext-junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+ui-appcompat = { group = "androidx.appcompat", name = "appcompat" , version.ref = "app-compat"}
+ui-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout" , version.ref = "constraintlayout"}
+ui-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx" , version.ref = "livedata-ktx"}
+ui-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx" , version.ref = "viewmodel-ktx"}
+ui-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx" , version.ref = "fragment-ktx"}
+ui-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx" , version.ref = "navigation-ui-ktx"}
+material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "org-jlleitschuh-gradle-ktlint" }
+org-jlleitschuh-gradle-ktlint-idea = { id = "org.jlleitschuh.gradle.ktlint-idea", version.ref = "org-jlleitschuh-gradle-ktlint" }
+com-android-library = { id = "com.android.library", version.ref = "agp" }
+
+[bundles]
+

@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kbank.dafund.mobile"
-    compileSdk = 33
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.kbank.dafund.mobile"
@@ -39,15 +39,16 @@ android {
 }
 
 dependencies {
-    implementation(AppDependencies.coreKtx)
-    implementation(AppDependencies.appcompat)
-    implementation(AppDependencies.material)
-    implementation(AppDependencies.constraintLayout)
-    implementation(AppDependencies.liveDataKtx)
-    implementation(AppDependencies.viewModelKtx)
-    implementation(AppDependencies.fragmentKtx)
-    implementation(AppDependencies.navigationUiKtx)
+    implementation(libs.core.ktx)
+    implementation(libs.ui.appcompat)
+    implementation(libs.material3)
+    implementation(libs.ui.constraintlayout)
+    implementation(libs.ui.livedata.ktx)
+    implementation(libs.ui.viewmodel.ktx)
+    implementation(libs.ui.fragment.ktx)
+    implementation(libs.ui.navigation.ui.ktx)
 
-    testImplementation(AppDependencies.testLibraries)
-    testImplementation(AppDependencies.androidTestLibraries)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
 }
