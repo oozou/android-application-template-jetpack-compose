@@ -18,6 +18,21 @@ android {
     }
 
     buildTypes {
+        create("mock") {
+            isMinifyEnabled = false
+            isDebuggable = true
+        }
+
+        debug {
+            isMinifyEnabled = false
+            isDebuggable = true
+        }
+
+        create("integration") {
+            isMinifyEnabled = false
+            isDebuggable = true
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -39,6 +54,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(libs.core.ktx)
     implementation(libs.ui.appcompat)
     implementation(libs.material3)

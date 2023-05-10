@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dafund-android"
 include(":app")
+include(":core")

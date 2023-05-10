@@ -1,5 +1,7 @@
 [versions]
+kotlin-version = "1.8.0"
 agp = "8.1.0-beta02"
+jetbrains-kotlinx-serialization-json = "1.3.2"
 org-jetbrains-kotlin-android = "1.8.0"
 org-jlleitschuh-gradle-ktlint = "11.3.2"
 core-ktx = "1.10.0"
@@ -17,9 +19,13 @@ viewmodel-ktx = "2.6.1"
 fragment-ktx = "2.5.3"
 navigation-ui-ktx = "2.5.3"
 compose-bom = "2023.05.00"
+datastore = "1.0.0"
+kotlinx-serialization-json = "1.3.2"
+kotlin-plugin-serialization = "1.7.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "jetbrains-kotlinx-serialization-json" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "ext-junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -33,13 +39,14 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-ui-appcompat = { group = "androidx.appcompat", name = "appcompat" , version.ref = "app-compat"}
-ui-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout" , version.ref = "constraintlayout"}
-ui-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx" , version.ref = "livedata-ktx"}
-ui-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx" , version.ref = "viewmodel-ktx"}
-ui-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx" , version.ref = "fragment-ktx"}
-ui-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx" , version.ref = "navigation-ui-ktx"}
+ui-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "app-compat" }
+ui-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+ui-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "livedata-ktx" }
+ui-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodel-ktx" }
+ui-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "fragment-ktx" }
+ui-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation-ui-ktx" }
 material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
@@ -47,6 +54,7 @@ org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.re
 org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "org-jlleitschuh-gradle-ktlint" }
 org-jlleitschuh-gradle-ktlint-idea = { id = "org.jlleitschuh.gradle.ktlint-idea", version.ref = "org-jlleitschuh-gradle-ktlint" }
 com-android-library = { id = "com.android.library", version.ref = "agp" }
+org-jetbrains-kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
 
 [bundles]
 
