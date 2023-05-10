@@ -5,6 +5,9 @@ import androidx.datastore.dataStore
 import com.kbank.dafund.domain.user.models.UserSettings
 import kotlinx.coroutines.flow.first
 
+// references
+// https://github.com/philipplackner/AndroidCrypto
+// https://www.youtube.com/watch?v=D_q07P1sfcc
 class UserSettingsDataStore constructor(private val context: Context) {
 
     private val Context.dataStore by dataStore(
