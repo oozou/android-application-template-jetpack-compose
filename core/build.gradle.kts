@@ -54,11 +54,13 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation(libs.stetho)
     implementation(libs.stetho.okhttp3)
+
     debugImplementation(libs.chucker)
     releaseImplementation(libs.chucker.no.op)
 
     api(libs.retrofit2)
-    api(libs.retrofit2.gson)
+    api(libs.moshi)
+    api(libs.retrofit2.moshi)
     api(libs.retrofit2.log)
     api(libs.jetbrains.kotlinx.coroutine.core)
     api(libs.jetbrains.kotlinx.coroutine.android)

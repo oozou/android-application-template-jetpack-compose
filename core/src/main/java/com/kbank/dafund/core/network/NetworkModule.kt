@@ -4,8 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +16,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -26,11 +26,14 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideGson(): Gson = GsonBuilder().create()
+    fun provideMoshi(): Moshi = Moshi.Builder()
+        .addLast(KotlinJsonAdapterFactory())
+        .build()
 
     @Provides
     @Singleton
-    fun provideGsonConverter(gson: Gson): GsonConverterFactory = GsonConverterFactory.create(gson)
+    fun provideMoshiConverter(moshi: Moshi): MoshiConverterFactory =
+        MoshiConverterFactory.create(moshi)
 
     @Provides
     @Singleton
@@ -91,9 +94,9 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(gson: GsonConverterFactory, okHttpClient: OkHttpClient): Retrofit =
+    fun provideRetrofit(moshi: MoshiConverterFactory, okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .addConverterFactory(gson)
+            .addConverterFactory(moshi)
             .baseUrl("BASE_URL") // TODO: add BASE_URL
             .client(okHttpClient)
             .build()
