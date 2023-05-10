@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "1003023309182",
+    "project_id": "dafund-a0414",
+    "storage_bucket": "dafund-a0414.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003023309182:android:61dac7d95eff77b3f23b2f",
+        "android_client_info": {
+          "package_name": "com.kbank.dafund"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003023309182-fofktdu14o83eun99ipv0e8lcmtg4e6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2bXffXQMpZGA_IPmifKJXeROgkvlxFGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003023309182-fofktdu14o83eun99ipv0e8lcmtg4e6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003023309182-ss7k0fm0otkp9ajjc0gu887hne29s2nr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oozou.dafund.dev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003023309182:android:82a780edcabcc55cf23b2f",
+        "android_client_info": {
+          "package_name": "com.kbank.dafund.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003023309182-fofktdu14o83eun99ipv0e8lcmtg4e6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2bXffXQMpZGA_IPmifKJXeROgkvlxFGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003023309182-fofktdu14o83eun99ipv0e8lcmtg4e6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003023309182-ss7k0fm0otkp9ajjc0gu887hne29s2nr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oozou.dafund.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

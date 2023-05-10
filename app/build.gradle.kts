@@ -1,20 +1,35 @@
+import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
 }
 
 android {
-    namespace = "com.kbank.dafund.mobile"
+    namespace = "com.kbank.dafund"
     compileSdk = AppConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.kbank.dafund.mobile"
+        applicationId = "com.kbank.dafund"
         minSdk = AppConfig.minSdk
         targetSdk = AppConfig.targetSdk
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        System.getenv("ANDROID_KEYSTORE_PASSWORD")?.let {
+            create("release") {
+                storeFile = file("release.keystore")
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ANDROID_KEYSTORE_ALIAS")
+                keyPassword = System.getenv("ANDROID_KEYSTORE_KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
@@ -34,22 +49,51 @@ android {
         }
 
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = if (System.getenv("ANDROID_KEYSTORE_PASSWORD") != null) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+            firebaseAppDistribution {
+                artifactType = "APK"
+                groups = "internal-testers"
+                serviceCredentialsFile = "service_credential.json"
+                releaseNotesFile = "release_notes.txt"
+                artifactPath = System.getenv("APK_PATH")?.lowercase()
+            }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
+    }
+
+    val envDimension = "env"
+    flavorDimensions += envDimension
+    productFlavors {
+        create("develop") {
+            dimension = envDimension
+            applicationIdSuffix = ".dev"
+        }
+        create("production") {
+            dimension = envDimension
+        }
     }
 }
 
