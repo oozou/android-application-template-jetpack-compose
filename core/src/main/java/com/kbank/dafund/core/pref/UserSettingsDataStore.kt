@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.datastore.dataStore
 import com.kbank.dafund.domain.user.models.UserSettings
 import kotlinx.coroutines.flow.first
+import javax.inject.Inject
 
 // references
 // https://github.com/philipplackner/AndroidCrypto
 // https://www.youtube.com/watch?v=D_q07P1sfcc
-class UserSettingsDataStore constructor(private val context: Context) {
+class UserSettingsDataStore @Inject constructor(private val context: Context) {
 
     private val Context.dataStore by dataStore(
         fileName = SETTINGS_DATASTORE,
