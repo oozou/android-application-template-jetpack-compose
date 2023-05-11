@@ -4,36 +4,25 @@ import android.app.Application
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.facebook.stetho.okhttp3.StethoInterceptor
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.json.Json
 import okhttp3.Cache
 import okhttp3.Interceptor
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
-
-    @Provides
-    @Singleton
-    fun provideMoshi(): Moshi = Moshi.Builder()
-        .addLast(KotlinJsonAdapterFactory())
-        .build()
-
-    @Provides
-    @Singleton
-    fun provideMoshiConverter(moshi: Moshi): MoshiConverterFactory =
-        MoshiConverterFactory.create(moshi)
 
     @Provides
     @Singleton
@@ -94,10 +83,12 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(moshi: MoshiConverterFactory, okHttpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder()
-            .addConverterFactory(moshi)
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        val contentType = "application/json".toMediaType()
+        return Retrofit.Builder()
+            .addConverterFactory(Json.asConverterFactory(contentType))
             .baseUrl("BASE_URL") // TODO: add BASE_URL
             .client(okHttpClient)
             .build()
+    }
 }
