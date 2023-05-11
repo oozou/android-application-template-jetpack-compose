@@ -59,7 +59,6 @@ dependencies {
     releaseImplementation(libs.chucker.no.op)
 
     api(libs.retrofit2)
-    api(libs.moshi)
     api(libs.retrofit2.kotlin.serialization.converter)
     api(libs.retrofit2.log)
     api(libs.jetbrains.kotlinx.coroutine.core)

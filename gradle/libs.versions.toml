@@ -60,7 +60,6 @@ datastore = { group = "androidx.datastore", name = "datastore-preferences", vers
 retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
 retrofit2-kotlin-serialization-converter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 retrofit2-log = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "retrofit_logging" }
-moshi = "com.squareup.moshi:moshi-kotlin:1.14.0"
 chucker = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker" }
 chucker-no-op = { group = "com.github.chuckerteam.chucker", name = "library-no-op", version.ref = "chucker" }
 stetho = { group = "com.facebook.stetho", name = "stetho", version.ref = "stetho" }
