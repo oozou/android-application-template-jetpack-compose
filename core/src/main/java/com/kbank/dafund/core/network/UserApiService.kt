@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 // TODO: TBC
-interface UserAPIService {
+interface UserApiService {
 
     @GET("v1/xxxx")
     suspend fun getUser(): List<String>
