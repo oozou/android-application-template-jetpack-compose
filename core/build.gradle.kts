@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     id("org.jetbrains.kotlin.plugin.serialization")
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -35,11 +37,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -48,8 +50,26 @@ dependencies {
     implementation(libs.ui.appcompat)
     implementation(libs.datastore)
     implementation(libs.jetbrains.kotlinx.serialization.json)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.stetho)
+    implementation(libs.stetho.okhttp3)
+
+    debugImplementation(libs.chucker)
+    releaseImplementation(libs.chucker.no.op)
+
+    api(libs.retrofit2)
+    api(libs.retrofit2.kotlin.serialization.converter)
+    api(libs.retrofit2.log)
+    api(libs.jetbrains.kotlinx.coroutine.core)
+    api(libs.jetbrains.kotlinx.coroutine.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
