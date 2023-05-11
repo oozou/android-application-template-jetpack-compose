@@ -1,4 +1,4 @@
-package com.kbank.dafund.mobile
+package com.kbank.dafund
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

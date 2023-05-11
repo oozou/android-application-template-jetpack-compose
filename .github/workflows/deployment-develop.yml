@@ -1,0 +1,20 @@
+name: Deployment Develop Build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: oozou-eks-runner
+    steps:
+      - uses: actions/checkout@v3
+      - name: Firebase Distribution
+        uses: ./.github/actions/firebase-distribution
+        with:
+          flavor: 'Develop'
+          keystore-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          keystore-password: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keystore-alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          keystore-key-password: ${{ secrets.ANDROID_KEYSTORE_KEY_PASSWORD }}
+          service-credential-base64: ${{ secrets.SERVICE_CREDENTIAL_BASE64 }}

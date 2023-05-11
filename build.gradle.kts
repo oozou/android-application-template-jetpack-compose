@@ -15,6 +15,8 @@ plugins {
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint.idea)
     alias(libs.plugins.com.android.library) apply false
     alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.google.service) apply false
+    alias(libs.plugins.firebase.appdistribution.gradle) apply false
 }
 
 allprojects {
