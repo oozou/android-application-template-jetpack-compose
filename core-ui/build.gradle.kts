@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kbank.dafund.core"
+    namespace = "com.kbank.dafund.core.ui"
     compileSdk = AppConfig.compileSdk
 
     defaultConfig {
@@ -16,6 +16,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -43,26 +46,53 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.6"
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.datastore)
-    implementation(libs.jetbrains.kotlinx.serialization.json)
+    api(project(":core"))
+
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.appcompat)
+    api(libs.androidx.ui.constraintlayout)
+    api(libs.androidx.ui.livedata.ktx)
+    api(libs.androidx.ui.viewmodel.ktx)
+    api(libs.androidx.ui.fragment.ktx)
+    api(libs.androidx.ui.navigation.ui.ktx)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    implementation(libs.stetho)
-    implementation(libs.stetho.okhttp3)
+    api(libs.hilt.navigation.compose)
 
-    debugImplementation(libs.chucker)
-    releaseImplementation(libs.chucker.no.op)
+    val composeBom = platform(libs.androidx.compose.bom)
+    api(composeBom)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.material)
 
-    api(libs.retrofit2)
-    api(libs.retrofit2.kotlin.serialization.converter)
-    api(libs.retrofit2.log)
-    api(libs.jetbrains.kotlinx.coroutine.core)
-    api(libs.jetbrains.kotlinx.coroutine.android)
+    // Android Studio Preview support
+    api(libs.androidx.compose.ui.tooling.preview)
+    api(libs.androidx.compose.ui.tooling)
+
+    api(libs.androidx.compose.activity)
+    api(libs.androidx.lifecycle.viewmodel.compose)
+    api(libs.androidx.compose.runtime.livedata)
+    api(libs.androidx.compose.animation)
+    api(libs.androidx.navigation.compose)
+    api(libs.coil.compose)
+    api(libs.androidx.constraintlayout.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

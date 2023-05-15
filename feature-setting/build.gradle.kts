@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kbank.dafund.core"
+    namespace = "com.kbank.dafund.core.ui"
     compileSdk = AppConfig.compileSdk
 
     defaultConfig {
@@ -43,26 +43,25 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.6"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.datastore)
-    implementation(libs.jetbrains.kotlinx.serialization.json)
+    implementation(project(":core-ui"))
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    implementation(libs.stetho)
-    implementation(libs.stetho.okhttp3)
-
-    debugImplementation(libs.chucker)
-    releaseImplementation(libs.chucker.no.op)
-
-    api(libs.retrofit2)
-    api(libs.retrofit2.kotlin.serialization.converter)
-    api(libs.retrofit2.log)
-    api(libs.jetbrains.kotlinx.coroutine.core)
-    api(libs.jetbrains.kotlinx.coroutine.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

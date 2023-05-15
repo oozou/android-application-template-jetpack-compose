@@ -21,6 +21,9 @@ android {
         versionName = AppConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     signingConfigs {
@@ -83,7 +86,11 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.6"
     }
 
     val envDimension = "env"
@@ -97,24 +104,31 @@ android {
             dimension = envDimension
         }
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
     implementation(project(":core"))
-    implementation(libs.core.ktx)
-    implementation(libs.ui.appcompat)
-    implementation(libs.material3)
-    implementation(libs.ui.constraintlayout)
-    implementation(libs.ui.livedata.ktx)
-    implementation(libs.ui.viewmodel.ktx)
-    implementation(libs.ui.fragment.ktx)
-    implementation(libs.ui.navigation.ui.ktx)
+    implementation(project(":core-ui"))
+    implementation(project(":feature-dashboard"))
+    implementation(project(":feature-search"))
+    implementation(project(":feature-setting"))
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
+    // UI Tests
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
 
 // Allow references to generated code
