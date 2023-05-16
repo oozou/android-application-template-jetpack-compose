@@ -3,13 +3,13 @@ kotlin-version = "1.8.20"
 agp = "8.1.0-beta02"
 org-jlleitschuh-gradle-ktlint = "11.3.2"
 androidx-test-ext-junit = "1.1.5"
-lifedata = "2.6.1"
-navigation-ktx = "2.5.3"
+lifecycle = "2.6.1"
+navigation = "2.5.3"
 hilt-android-compiler = "2.46"
 coroutine = "1.6.4"
-chucker = "3.5.0"
+chucker = "3.5.2"
 stetho = "1.5.1"
-core-ktx = "1.9.0"
+core-ktx = "1.10.1"
 junit = "4.13.2"
 androidx-test-ext-junit115 = "1.1.5"
 espresso-core = "3.5.1"
@@ -17,9 +17,9 @@ appcompat = "1.6.1"
 material = "1.9.0"
 
 [libraries]
-androidx-compose-bom = "androidx.compose:compose-bom:2023.05.00"
+androidx-compose-bom = "androidx.compose:compose-bom:2023.05.01"
 androidx-compose-material = { module = "androidx.compose.material:material" }
-androidx-compose-material3 = "androidx.compose.material3:material3:1.0.1"
+androidx-compose-material3 = "androidx.compose.material3:material3:1.1.0"
 androidx-compose-activity = "androidx.activity:activity-compose:1.7.1"
 androidx-constraintlayout-compose = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
@@ -29,24 +29,24 @@ androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-mani
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
-androidx-navigation-compose = "androidx.navigation:navigation-compose:2.5.3"
 androidx-core-ktx = "androidx.core:core-ktx:1.10.1"
-androidx-lifecycle-viewmodel-compose = "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-androidx-lifecycle-runtime-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
 androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
 androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
 androidx-ui-constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
-androidx-ui-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifedata" }
-androidx-ui-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifedata" }
-androidx-ui-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-ktx" }
-androidx-ui-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-ktx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 
 coil-compose = "io.coil-kt:coil-compose:2.3.0"
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android-compiler" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
 hilt-navigation-compose = "androidx.hilt:hilt-navigation-compose:1.0.0"
-jetbrains-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
+jetbrains-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
 jetbrains-kotlinx-coroutine-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutine" }
 jetbrains-kotlinx-coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutine" }
 
