@@ -68,10 +68,6 @@ dependencies {
     api(libs.androidx.core.ktx)
     api(libs.androidx.appcompat)
     api(libs.androidx.ui.constraintlayout)
-    api(libs.androidx.ui.livedata.ktx)
-    api(libs.androidx.ui.viewmodel.ktx)
-    api(libs.androidx.ui.fragment.ktx)
-    api(libs.androidx.ui.navigation.ui.ktx)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
@@ -88,7 +84,7 @@ dependencies {
 
     api(libs.androidx.compose.activity)
     api(libs.androidx.lifecycle.viewmodel.compose)
-    api(libs.androidx.compose.runtime.livedata)
+    api(libs.androidx.lifecycle.runtime.compose)
     api(libs.androidx.compose.animation)
     api(libs.androidx.navigation.compose)
     api(libs.coil.compose)
