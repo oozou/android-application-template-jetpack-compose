@@ -1,24 +1,19 @@
 import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("kbank.dafund.android.application")
     id("com.google.gms.google-services")
     id("com.google.firebase.appdistribution")
-    kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+    id("kbank.dafund.android.hilt")
 }
 
 android {
     namespace = "com.kbank.dafund"
-    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.kbank.dafund"
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        versionCode = (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toString().toInt()
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -38,17 +33,7 @@ android {
     }
 
     buildTypes {
-        create("mock") {
-            isMinifyEnabled = false
-            isDebuggable = true
-        }
-
         debug {
-            isMinifyEnabled = false
-            isDebuggable = true
-        }
-
-        create("integration") {
             isMinifyEnabled = false
             isDebuggable = true
         }
@@ -76,34 +61,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
-    }
-
-    val envDimension = "env"
-    flavorDimensions += envDimension
-    productFlavors {
-        create("develop") {
-            dimension = envDimension
-            applicationIdSuffix = ".dev"
-        }
-        create("production") {
-            dimension = envDimension
-        }
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -117,9 +74,6 @@ dependencies {
     implementation(project(":feature-dashboard"))
     implementation(project(":feature-search"))
     implementation(project(":feature-setting"))
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
 
     // UI Tests
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
