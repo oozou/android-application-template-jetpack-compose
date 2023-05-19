@@ -30,6 +30,7 @@ androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-mani
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-core-ktx = "androidx.core:core-ktx:1.10.1"
 androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
 androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }

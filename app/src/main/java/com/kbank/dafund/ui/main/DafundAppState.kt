@@ -9,9 +9,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kbank.dafund.R
-import com.kbank.dafund.core.ui.main.DafundIcons
+import com.kbank.dafund.core.designsystem.icon.DafundIcons
+import com.kbank.dafund.core.designsystem.icon.Icon
 import com.kbank.dafund.core.ui.main.DafundNavigationDestination
-import com.kbank.dafund.core.ui.main.Icon
+import com.kbank.dafund.feature.dashboard.DashboardDestination
+import com.kbank.dafund.feature.search.SearchDestination
+import com.kbank.dafund.feature.setting.SettingDestination
 
 @Composable
 fun rememberAppState(
@@ -36,24 +39,36 @@ class DafundAppState(
 
     val topLevelDestinations: List<TopLevelDestination> = listOf(
         TopLevelDestination(
-            route = com.kbank.dafund.feature.dashboard.DashboardDestination.route,
-            destination = com.kbank.dafund.feature.dashboard.DashboardDestination.destination,
-            selectedIcon = Icon.DrawableResourceIcon(DafundIcons.MenuSelected),
-            unselectedIcon = Icon.DrawableResourceIcon(DafundIcons.Menu),
+            route = DashboardDestination.route,
+            destination = DashboardDestination.destination,
+            selectedIcon = Icon.DrawableResourceIcon(
+                DafundIcons.MenuBook
+            ),
+            unselectedIcon = Icon.DrawableResourceIcon(
+                DafundIcons.MenuBook
+            ),
             iconTextId = R.string.dashboard
         ),
         TopLevelDestination(
-            route = com.kbank.dafund.feature.search.SearchDestination.route,
-            destination = com.kbank.dafund.feature.search.SearchDestination.destination,
-            selectedIcon = Icon.DrawableResourceIcon(android.R.drawable.ic_menu_search),
-            unselectedIcon = Icon.DrawableResourceIcon(android.R.drawable.ic_menu_search),
+            route = SearchDestination.route,
+            destination = SearchDestination.destination,
+            selectedIcon = Icon.DrawableResourceIcon(
+                android.R.drawable.ic_menu_search
+            ),
+            unselectedIcon = Icon.DrawableResourceIcon(
+                android.R.drawable.ic_menu_search
+            ),
             iconTextId = R.string.search
         ),
         TopLevelDestination(
-            route = com.kbank.dafund.feature.setting.SettingDestination.route,
-            destination = com.kbank.dafund.feature.setting.SettingDestination.destination,
-            selectedIcon = Icon.DrawableResourceIcon(DafundIcons.MenuSelected),
-            unselectedIcon = Icon.DrawableResourceIcon(DafundIcons.Menu),
+            route = SettingDestination.route,
+            destination = SettingDestination.destination,
+            selectedIcon = Icon.DrawableResourceIcon(
+                DafundIcons.MenuBookBorder
+            ),
+            unselectedIcon = Icon.DrawableResourceIcon(
+                DafundIcons.MenuBookBorder
+            ),
             iconTextId = R.string.setting
         )
     )

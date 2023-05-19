@@ -16,8 +16,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dafund-android"
 include(":app")
-include(":core")
-include(":core-ui")
-include(":feature-dashboard")
-include(":feature-search")
-include(":feature-setting")
+include(":core:common")
+include(":core:designsystem")
+include(":core:ui")
+include(":feature:dashboard")
+include(":feature:search")
+include(":feature:setting")
+include(":app-dafund-catalog")

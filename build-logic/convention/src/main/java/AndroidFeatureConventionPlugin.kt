@@ -23,8 +23,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             dependencies {
-                add("implementation", project(":core"))
-                add("implementation", project(":core-ui"))
+                add("implementation", project(":core:common"))
+                add("implementation", project(":core:designsystem"))
+                add("implementation", project(":core:ui"))
 
                 add("testImplementation", libs.findLibrary("junit").get())
                 add("androidTestImplementation", libs.findLibrary("androidx.test.ext.junit").get())

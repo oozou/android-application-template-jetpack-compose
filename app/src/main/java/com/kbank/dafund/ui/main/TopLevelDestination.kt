@@ -1,7 +1,7 @@
 package com.kbank.dafund.ui.main
 
+import com.kbank.dafund.core.designsystem.icon.Icon
 import com.kbank.dafund.core.ui.main.DafundNavigationDestination
-import com.kbank.dafund.core.ui.main.Icon
 
 data class TopLevelDestination(
     override val route: String,

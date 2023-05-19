@@ -69,11 +69,12 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":core-ui"))
-    implementation(project(":feature-dashboard"))
-    implementation(project(":feature-search"))
-    implementation(project(":feature-setting"))
+    implementation(project(":core:common"))
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:dashboard"))
+    implementation(project(":feature:search"))
+    implementation(project(":feature:setting"))
 
     // UI Tests
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

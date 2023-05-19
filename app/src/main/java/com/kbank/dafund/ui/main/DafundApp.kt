@@ -7,7 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.kbank.dafund.core.ui.theme.DafundTheme
+import com.kbank.dafund.core.designsystem.theme.DafundTheme
 import com.kbank.dafund.feature.dashboard.DashboardDestination
 import com.kbank.dafund.navigation.DafundNavHost
 
