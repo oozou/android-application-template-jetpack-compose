@@ -1,10 +1,11 @@
-package com.kbank.dafund.di
+package com.kbank.dafund.catalog.di
 
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.kbank.dafund.Secrets
 import com.kbank.dafund.core.db.DafundDatabase
+import com.kbank.dafund.core.db.DafundDatabaseDao
 import com.kbank.dafund.core.pref.SecretSharedPreference
 import dagger.Module
 import dagger.Provides
@@ -31,10 +32,10 @@ class AppModule {
     // ref https://stackoverflow.com/a/63146319/2318558
     @Singleton
     @Provides
-    fun provideDatabase(context: Context, sharedPreferences: SharedPreferences) =
+    fun provideDatabase(context: Context, sharedPreferences: SharedPreferences): DafundDatabase =
         DafundDatabase.createDB(context, sharedPreferences)
 
     @Singleton
     @Provides
-    fun provideSecureRoomDatabaseDao(db: DafundDatabase) = db.databaseDao
+    fun provideSecureRoomDatabaseDao(db: DafundDatabase): DafundDatabaseDao = db.databaseDao
 }

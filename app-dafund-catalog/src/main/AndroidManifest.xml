@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,8 +22,18 @@
         </activity>
         <activity
             android:name="com.kbank.dafund.catalog.SecretKeysViewerActivity"
-            android:label="@string/app_name"
             android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dafundandroid" />
+        <activity
+            android:name="com.kbank.dafund.catalog.SharePrefViewerActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Dafundandroid" />
+        <activity
+            android:name="com.kbank.dafund.catalog.DatabaseViewerActivity"
+            android:exported="true"
+            android:label="@string/app_name"
             android:theme="@style/Theme.Dafundandroid" />
     </application>
 

@@ -5,7 +5,9 @@ import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.kbank.dafund.Constants.SecretPackageName
 import com.kbank.dafund.Secrets
+import com.kbank.dafund.core.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,15 +32,18 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpCache(application: Application): Cache =
-        Cache(application.cacheDir, 10L * 1024L * 1024L)
+    fun provideOkHttpCache(application: Application): Cache = Cache(application.cacheDir, 10L * 1024L * 1024L)
 
     @Provides
     @Singleton
-    fun makeCertificatePinner(context: Context, secrets: Secrets): CertificatePinner {
+    fun makeCertificatePinner(context: Context, secrets: Secrets): CertificatePinner? {
         val packageName = context.packageName
         val publicKey = secrets.getApiTLSPublicKeys(packageName)
-        val uri = URI(secrets.getBaseAPIUrl1(packageName)) // this url will be applied ssl pinning
+        val uri = try {
+            URI(secrets.getBaseAPIUrl1(packageName))
+        } catch (e: Exception) {
+            return null
+        }
         return CertificatePinner.Builder().apply {
             add(uri.host, publicKey)
         }.build()
@@ -47,7 +52,7 @@ class NetworkModule {
     @Provides
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val logging = HttpLoggingInterceptor()
-        logging.level = if (true) { // TODO: Add is debuggable logic
+        logging.level = if (BuildConfig.DEBUG) { // TODO: Add is debuggable logic
             HttpLoggingInterceptor.Level.BODY
         } else {
             HttpLoggingInterceptor.Level.NONE
@@ -90,7 +95,7 @@ class NetworkModule {
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
-        if (true) { // TODO: Add is debuggable logic
+        if (BuildConfig.DEBUG) {
             builder.addInterceptor(ChuckerInterceptor.Builder(context).build())
             builder.addNetworkInterceptor(StethoInterceptor())
         } else {
@@ -109,7 +114,7 @@ class NetworkModule {
         val packageName = context.packageName
         return Retrofit.Builder()
             .addConverterFactory(Json.asConverterFactory(contentType))
-            .baseUrl(secrets.getBaseAPIUrl1(packageName)) // TODO: add BASE_URL
+            .baseUrl(secrets.getBaseAPIUrl1(SecretPackageName)) // TODO: add BASE_URL
             .client(okHttpClient)
             .build()
     }

@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.kbank.dafund.Constants
 import com.kbank.dafund.Secrets
 import com.kbank.dafund.core.designsystem.theme.DafundTheme
 
@@ -37,10 +38,10 @@ class SecretKeysViewerActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         item { Text(text = "Secret Keys", style = MaterialTheme.typography.headlineSmall) }
-                        item { Text(Secrets().getApiKey1("com.kbank.dafund")) }
-                        item { Text(Secrets().getApiKey1("com.kbank.dafund")) }
-                        item { Text(Secrets().getBaseAPIUrl1("com.kbank.dafund")) }
-                        item { Text(Secrets().getApiTLSPublicKeys("com.kbank.dafund")) }
+                        item { Text(Secrets().getApiKey1(Constants.SecretPackageName)) }
+                        item { Text(Secrets().getApiKey1(Constants.SecretPackageName)) }
+                        item { Text(Secrets().getBaseAPIUrl1(Constants.SecretPackageName)) }
+                        item { Text(Secrets().getApiTLSPublicKeys(Constants.SecretPackageName)) }
                     }
                 }
             }

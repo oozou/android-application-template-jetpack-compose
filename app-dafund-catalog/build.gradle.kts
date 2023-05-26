@@ -1,5 +1,3 @@
-
-
 plugins {
     id("kbank.dafund.android.application")
     id("kbank.dafund.android.hilt")
@@ -33,4 +31,6 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
+    implementation(libs.androidx.compose.runtime.livedata)
+    implementation(libs.androidx.room.ktx)
 }

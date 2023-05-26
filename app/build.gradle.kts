@@ -76,6 +76,8 @@ dependencies {
     implementation(project(":feature:search"))
     implementation(project(":feature:setting"))
 
+    implementation(libs.androidx.room.ktx)
+
     // UI Tests
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

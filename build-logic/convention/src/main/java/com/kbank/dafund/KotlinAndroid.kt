@@ -25,6 +25,10 @@ internal fun Project.configureKotlinAndroid(
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
+
+        buildFeatures {
+            buildConfig = true
+        }
     }
 
     // Use withType to workaround https://youtrack.jetbrains.com/issue/KT-55947
@@ -34,7 +38,6 @@ internal fun Project.configureKotlinAndroid(
         }
     }
 }
-
 
 
 /**
