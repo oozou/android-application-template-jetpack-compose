@@ -29,6 +29,8 @@ runs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       shell: bash
+    - name: Build Secret class
+      run: ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${{ inputs.flavor }}.properties -Ppackage=com.kbank.dafund
     - name: Build
       run: ./gradlew assemble${{ inputs.flavor }}Release
       shell: bash

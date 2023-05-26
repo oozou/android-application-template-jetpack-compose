@@ -18,21 +18,22 @@
 ### How to add new secret keys in NDK
 
 This project is using https://github.com/klaxit/hidden-secrets-gradle-plugin plugin to keep secret
-keys safe and accessible from `${dev|uat|prod}.properties`,
+keys safe and accessible from `${Develop|uat|Production}.properties`,
 
-1. Update the keys in `${dev|uat|prod}.properties`
-2. Run below script to generate the keys as an NDK library
+1. Update the keys in `${Develop|uat|Production}.properties`
+2. Run below script to generate the keys as an NDK library or run `script/build-secrets-develop.sh`
     ```
-    ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${dev|uat|prod}.properties -Ppackage=${com.your.package}
+    ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${Develop|uat|Production}.properties -Ppackage=com.kbank.dafund
     ```
-3. Now you can use the updated key using `Secrets().getNewSecretKey(${com.your.package})` class that generated inside common module.
+3. Now you can use the updated key using `Secrets().getNewSecretKey("com.kbank.dafund")` class that
+   generated inside common module.
 
 ### How to run this project
 
-1. Copy `${dev|uat|prod}.properties` into the root of the folder
-2. Run this command to generate all the required secret
-   keys in the NDK library
+1. Copy `${Develop|uat|Production}.properties` into the root of the folder
+2. Run below command to generate all the required secret keys in the NDK library or
+   run `script/build-secrets-develop.sh`
    ```
-   ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${dev|uat|prod}.properties -Ppackage=${com.your.package}
+   ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${Develop|uat|Production}.properties -Ppackage=com.kbank.dafund
    ```
 3. Run the project
