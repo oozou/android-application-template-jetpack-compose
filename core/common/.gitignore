@@ -1,1 +1,8 @@
 /build
+src/main/cpp/CMakeLists.txt
+src/main/cpp/secrets.cpp
+src/main/cpp/secrets.hpp
+src/main/cpp/sha256.cpp
+src/main/cpp/sha256.hpp
+Secrets.kt
+.cxx/*

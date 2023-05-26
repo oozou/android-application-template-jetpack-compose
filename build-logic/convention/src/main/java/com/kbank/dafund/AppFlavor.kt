@@ -16,6 +16,12 @@ internal fun Project.configureFlavors(commonExtension: CommonExtension<*, *, *, 
                     this.applicationIdSuffix = ".dev"
                 }
             }
+            create("uat") {
+                dimension = envDimension
+                if (this@apply is ApplicationExtension && this is ApplicationProductFlavor) {
+                    this.applicationIdSuffix = ".uat"
+                }
+            }
             create("production") {
                 dimension = envDimension
             }

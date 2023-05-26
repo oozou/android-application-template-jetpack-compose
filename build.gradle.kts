@@ -17,6 +17,7 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.google.service) apply false
     alias(libs.plugins.firebase.appdistribution.gradle) apply false
+    alias(libs.plugins.hidden.secrets.plugin) apply false
 }
 
 allprojects {

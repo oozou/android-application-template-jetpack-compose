@@ -2,10 +2,17 @@ plugins {
     id("kbank.dafund.android.library")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("kbank.dafund.android.hilt")
+    id("com.klaxit.hiddensecrets")
 }
 
 android {
     namespace = "com.kbank.dafund.core"
+
+    externalNativeBuild {
+        cmake {
+            path("src/main/cpp/CMakeLists.txt")
+        }
+    }
 }
 
 dependencies {
