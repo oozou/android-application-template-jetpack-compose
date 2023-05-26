@@ -31,6 +31,7 @@ runs:
       shell: bash
     - name: Build Secret class
       run: ./gradlew hideSecretFromPropertiesFile -PpropertiesFileName=${{ inputs.flavor }}.properties -Ppackage=com.kbank.dafund
+      shell: bash
     - name: Build
       run: ./gradlew assemble${{ inputs.flavor }}Release
       shell: bash
