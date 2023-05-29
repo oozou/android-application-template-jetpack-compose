@@ -75,6 +75,7 @@ dependencies {
     implementation(project(":feature:dashboard"))
     implementation(project(":feature:search"))
     implementation(project(":feature:setting"))
+    implementation(project(":feature:authentication"))
 
     implementation(libs.androidx.room.ktx)
 

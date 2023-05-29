@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class SettingViewModel : ViewModel() {
 
-    private val _text = MutableStateFlow("This is setting Fragment")
+    private val _text = MutableStateFlow("Settings")
     val text: StateFlow<String> = _text.asStateFlow()
 }
